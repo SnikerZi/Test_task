@@ -16,7 +16,7 @@ public class RegionRestController
     @RequestMapping("/getAll")
         public List<Region> getAll()
     {
-        System.out.println("regionList");
+
         List<Region> regionList = regionMapper.getAll();
         return regionList;
     }

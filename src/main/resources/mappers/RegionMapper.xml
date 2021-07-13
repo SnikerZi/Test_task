@@ -4,19 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="telda.restservice.RegionMapper">
 
-    <resultMap id="ResultMap" type="telda.restservice.RegionMapper">
-        <id column="id" property="ID" jdbcType="INTEGER"/>
-        <result column="name" property="Region_Name" jdbcType="VARCHAR"/>
-        <result column="short_name" property="Region_Short_Same" jdbcType="VARCHAR"/>
+    <resultMap id="ResultMap" type="telda.restservice.Region">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="short_name" property="short_name" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <select id="getAll" resultMap="ResultMap" >
+    <select id="get" parameterType="int" resultMap="ResultMap">
+        select id,name,short_name from region where id = #{id}
+    </select>
+    <select id="getAll" resultMap="ResultMap">
         select * from region
     </select>
 
-    <select id="get" resultMap="ResultMap" resultType="telda.restservice.Region">
-        select * from region where id = #{id}
-    </select>
+
 
     <update id="update">
         update region
@@ -24,11 +25,8 @@
         set <if test="short_name != null" >short_name = #{short_name}</if>
         where
         id = #{id}
-
     </update>
-
     <delete id="delete">
         delete from region where id = #{id}
     </delete>
-
 </mapper>
