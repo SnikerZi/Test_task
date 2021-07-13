@@ -1,6 +1,11 @@
 package telda.restservice;
 
-public class Region {
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import java.io.Serializable;
+
+public class Region implements Serializable
+{
     private int id;
     private String name;
     private String short_name;
