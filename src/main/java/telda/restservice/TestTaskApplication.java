@@ -1,17 +1,13 @@
 package telda.restservice;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
-public class TestTaskApplication
-{
+public class TestTaskApplication {
 
-	public static void main(String[] args)
-	{
-		SpringApplication.run(TestTaskApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(TestTaskApplication.class, args);
+    }
 
 }

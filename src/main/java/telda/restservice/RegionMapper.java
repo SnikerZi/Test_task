@@ -1,9 +1,7 @@
 package telda.restservice;
 
-import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -11,8 +9,13 @@ import java.util.List;
 @Repository
 
 public interface RegionMapper {
+    Region create(String name, String short_name);
+
     List<Region> getAll();
+
     Region get(int id);
-    void update(Region region);
+
+    void update(int id, String name, String short_name);
+
     void delete(int id);
 }
