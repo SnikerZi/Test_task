@@ -38,6 +38,6 @@
     <delete id="delete">
         delete
         from region
-        where id = #{id};
+        where id = #{region.id};
     </delete>
 </mapper>
