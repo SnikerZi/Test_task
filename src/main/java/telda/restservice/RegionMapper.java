@@ -9,13 +9,10 @@ import java.util.List;
 @Repository
 
 public interface RegionMapper {
-    Region create(String name, String short_name);
 
-    List<Region> getAll();
-
+    Region create(Region region);
     Region get(int id);
-
-    void update(int id, String name, String short_name);
-
-    void delete(int id);
+    List<Region> getAll();
+    void update(Region region, String[] params );
+    void delete(Region region);
 }
