@@ -14,14 +14,14 @@ public class RegionRegionsDao implements RegionsDao {
     private final RegionMapper regionMapper;
 
     @Override
-    @CachePut(value= "regions", cacheNames = "regions",key = "region.id")
+    @CacheEvict(value= "regions",key = "#region.id")
     public void saveRegion(Region region) {
         regionMapper.create(region);
     }
 
     @Override
-    @Cacheable(value= "regions",cacheNames = "regions",key = "")
-    public Region getRegion(int id) {
+    @Cacheable(value= "regions",key = "#id")
+    public Region getRegion(Integer id) {
         return regionMapper.get(id);
     }
 
@@ -31,14 +31,14 @@ public class RegionRegionsDao implements RegionsDao {
     }
 
     @Override
-    @CachePut(value= "regions",cacheNames = "regions",key = "region.id")
-    public void updateRegion(Region region, String[] params) {
-        regionMapper.update(region, params);
+    @CacheEvict(value= "regions",key = "#region.id")
+    public void updateRegion(Region region) {
+        regionMapper.update(region);
     }
 
     @Override
-    @CacheEvict(value= "regions",cacheNames = "regions",key = "region.id")
-    public void deleteRegion(Region region) {
-        regionMapper.delete(region);
+    @CacheEvict(value= "regions",key="#id")
+    public void deleteRegion(Integer id) {
+        regionMapper.delete(id);
     }
 }

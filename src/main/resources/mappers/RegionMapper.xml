@@ -27,17 +27,13 @@
 
     <update id="update">
         update region
-        set
-        <if test="name != null">name = #{name}</if>
-        set
-        <if test="short_name != null">short_name = #{short_name}</if>
-        where
-        id = #{id};
+        set (name,short_name) =(#{name},#{short_name})
+        where id = #{id};
     </update>
 
     <delete id="delete">
         delete
         from region
-        where id = #{region.id};
+        where id = #{id};
     </delete>
 </mapper>
