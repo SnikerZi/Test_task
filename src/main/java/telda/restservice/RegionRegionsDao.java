@@ -26,10 +26,9 @@ public class RegionRegionsDao implements RegionsDao {
         return regionMapper.getAll();
     }
 
-
     @Override
     public void updateRegion(Region region, String[] params) {
-        regionMapper.update(region,params);
+        regionMapper.update(region, params);
     }
 
     @Override
